@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Site\Site.css" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -72,6 +73,13 @@
     </Compile>
     <Compile Include="Views\Home\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Layout.Master.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Layout.Master.designer.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +96,18 @@
     <Content Include="App_Browsers\Navigation.browser" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StateInfo.config" />
+    <Content Include="StateInfo.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Layout.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Site\Site.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Themes\Site\Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
