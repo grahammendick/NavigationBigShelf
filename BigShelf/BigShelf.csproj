@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -80,9 +81,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BigShelfModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Home\Book.ascx.cs">
       <DependentUpon>Book.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Home\Book.ascx.designer.cs">
       <DependentUpon>Book.ascx</DependentUpon>
@@ -96,12 +99,14 @@
     </Compile>
     <Compile Include="Views\Home\Paging.ascx.cs">
       <DependentUpon>Paging.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Home\Paging.ascx.designer.cs">
       <DependentUpon>Paging.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\SortAndFilter.ascx.cs">
       <DependentUpon>SortAndFilter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Home\SortAndFilter.ascx.designer.cs">
       <DependentUpon>SortAndFilter.ascx</DependentUpon>
@@ -142,7 +147,6 @@
     <Folder Include="App_Themes\Site\Images\" />
     <Folder Include="Controllers\" />
     <Folder Include="Controls\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
