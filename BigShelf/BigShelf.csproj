@@ -81,6 +81,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BigShelfController.cs" />
     <Compile Include="Models\BigShelfModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Home\Book.ascx.cs">
@@ -144,8 +145,8 @@
     <Content Include="App_Themes\Site\Site.skin" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Site\Images\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>

@@ -61,6 +61,8 @@ local.properties
 *.tli
 *.tlh
 *.tmp
+*.mdf
+*.ldf
 *.vspscc
 .builds
 **/*.dotCover
