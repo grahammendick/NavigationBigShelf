@@ -8,6 +8,13 @@ using Navigation;
 
 namespace BigShelf.Controllers
 {
+	public enum Filter
+	{
+		All,
+		Mine,
+		Friends
+	}
+
 	public enum Sort
 	{
 		None,
@@ -23,14 +30,29 @@ namespace BigShelf.Controllers
 		private int TotalItems = 0;
 
 		public IEnumerable<Book> GetBooksForSearch(
+			[NavigationData] Filter filter,
 			[NavigationData] Sort sort,
 			[NavigationData] bool sortAscending,
 			[NavigationData] int page,
 			[NavigationData] int pageSize)
 		{
 			IQueryable<Book> booksQuery = this.DbContext.Books;
+			booksQuery = this.ApplyFilter(booksQuery, filter);
 			TotalItems = booksQuery.Count();
 			return this.ApplyOrderBy(booksQuery, sort, sortAscending).Skip((page - 1) * pageSize).Take(pageSize).ToList();
+		}
+
+		private IQueryable<Book> ApplyFilter(IQueryable<Book> booksQuery, Filter filter)
+		{
+			switch (filter)
+			{
+				case Filter.Mine:
+					return booksQuery.Where(p => p.FlaggedBooks.Any(q => q.ProfileId == 1));
+				case Filter.Friends:
+					return booksQuery;
+				default:
+					return booksQuery;
+			}
 		}
 
 		private IQueryable<Book> ApplyOrderBy(IQueryable<Book> booksQuery, Sort sort, bool sortAscending)
@@ -64,6 +86,7 @@ namespace BigShelf.Controllers
 		}
 
 		public IEnumerable<PagingViewModel> GetPages(
+			[NavigationData] Filter filter,
 			[NavigationData] int page,
 			[NavigationData] int pageSize)
 		{
@@ -85,6 +108,13 @@ namespace BigShelf.Controllers
 			yield return new SortViewModel() { Text = "Author", Sort = "Author", Ascending = true };
 			yield return new SortViewModel() { Text = "Rating", Sort = "Rating" };
 			yield return new SortViewModel() { Text = "Might Read", Sort = "MightRead" };
+		}
+
+		public IEnumerable<FilterViewModel> GetFilterOptions([NavigationData] Filter filter)
+		{
+			yield return new FilterViewModel() { Text = "All", Filter = "All" };
+			yield return new FilterViewModel() { Text = "My books", Filter = "Mine" };
+			yield return new FilterViewModel() { Text = "Just friends", Filter = "Friends" };
 		}
 	}
 }

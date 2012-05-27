@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BigShelfController.cs" />
     <Compile Include="Controllers\BookViewModel.cs" />
+    <Compile Include="Controllers\FilterViewModel.cs" />
     <Compile Include="Controllers\PagingViewModel.cs" />
     <Compile Include="Controllers\SortViewModel.cs" />
     <Compile Include="Models\BigShelfModel.cs" />
