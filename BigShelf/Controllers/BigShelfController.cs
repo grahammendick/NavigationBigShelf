@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using BigShelf.Models;
 using Navigation;
 
@@ -53,6 +54,11 @@ namespace BigShelf.Controllers
 				default:
 					return booksQuery;
 			}
+		}
+
+		public BookViewModel GetBook([Control] int id)
+		{
+			return new BookViewModel(DbContext.Books.Single(b => b.Id == id));
 		}
 	}
 }

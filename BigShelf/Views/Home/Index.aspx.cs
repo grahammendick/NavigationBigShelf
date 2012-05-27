@@ -9,12 +9,12 @@ namespace BigShelf.Views.Home
 	{
 		protected void Page_PreInit(object sender, EventArgs e)
 		{
-			Page.Items[typeof(BigShelfController)] = new BigShelfController();
+			Page.Items["controller"] = new BigShelfController();
 		}
 
 		protected void Page_CallingDataMethods(object sender, CallingDataMethodsEventArgs e)
 		{
-			e.DataMethodsObject = Page.Items[typeof(BigShelfController)];
+			e.DataMethodsObject = Page.Items["controller"];
 		}
 
 	}
