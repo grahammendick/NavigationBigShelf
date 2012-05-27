@@ -23,4 +23,10 @@
             </li>
         </ItemTemplate>
     </asp:ListView>
+    <asp:FormView ID="SearchForm" runat="server" ItemType="BigShelf.Controllers.FilterViewModel" SelectMethod="GetSearch" UpdateMethod="SetSearch" OnCallingDataMethods="Page_CallingDataMethods" DefaultMode="Edit">
+        <EditItemTemplate>
+            <asp:TextBox ID="titleText" runat="server" Text='<%# BindItem.Title %>' placeholder="Search books..." />
+            <asp:Button ID="searchButton" runat="server" Text="Search" CommandName="Update" />
+        </EditItemTemplate>
+    </asp:FormView>
 </div>

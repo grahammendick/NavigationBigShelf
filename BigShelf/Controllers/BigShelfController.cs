@@ -32,12 +32,15 @@ namespace BigShelf.Controllers
 		public IEnumerable<Book> GetBooksForSearch(
 			[NavigationData] Filter filter,
 			[NavigationData] Sort sort,
+			[NavigationData] string title,
 			[NavigationData] bool sortAscending,
 			[NavigationData] int page,
 			[NavigationData] int pageSize)
 		{
 			IQueryable<Book> booksQuery = this.DbContext.Books;
 			booksQuery = this.ApplyFilter(booksQuery, filter);
+			if (title != null)
+				booksQuery = booksQuery.Where(p => p.Title.Contains(title));
 			TotalItems = booksQuery.Count();
 			return this.ApplyOrderBy(booksQuery, sort, sortAscending).Skip((page - 1) * pageSize).Take(pageSize).ToList();
 		}
@@ -87,6 +90,7 @@ namespace BigShelf.Controllers
 
 		public IEnumerable<PagingViewModel> GetPages(
 			[NavigationData] Filter filter,
+			[NavigationData] string title,
 			[NavigationData] int page,
 			[NavigationData] int pageSize)
 		{
@@ -115,6 +119,17 @@ namespace BigShelf.Controllers
 			yield return new FilterViewModel() { Text = "All", Filter = "All" };
 			yield return new FilterViewModel() { Text = "My books", Filter = "Mine" };
 			yield return new FilterViewModel() { Text = "Just friends", Filter = "Friends" };
+		}
+
+		public FilterViewModel GetSearch([NavigationData] string title)
+		{
+			return new FilterViewModel() { Title = title };
+		}
+
+		public void SetSearch(FilterViewModel search)
+		{
+			StateContext.Bag.title = search.Title;
+			StateContext.Bag.page = null;
 		}
 	}
 }
