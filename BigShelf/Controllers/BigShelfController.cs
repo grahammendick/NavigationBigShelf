@@ -78,5 +78,13 @@ namespace BigShelf.Controllers
 				};
 			}
 		}
+
+		public IEnumerable<SortViewModel> GetSortOptions([NavigationData] Sort sort)
+		{
+			yield return new SortViewModel() { Text = "Title", Sort = "Title", Ascending = true };
+			yield return new SortViewModel() { Text = "Author", Sort = "Author", Ascending = true };
+			yield return new SortViewModel() { Text = "Rating", Sort = "Rating" };
+			yield return new SortViewModel() { Text = "Might Read", Sort = "MightRead" };
+		}
 	}
 }

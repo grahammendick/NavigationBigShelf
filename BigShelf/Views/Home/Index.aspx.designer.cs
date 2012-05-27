@@ -13,6 +13,15 @@ namespace BigShelf.Views.Home {
     public partial class Index {
         
         /// <summary>
+        /// SortAndFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BigShelf.Views.Home.SortAndFilter SortAndFilter;
+        
+        /// <summary>
         /// BookList control.
         /// </summary>
         /// <remarks>
