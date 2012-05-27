@@ -7,7 +7,7 @@ Results:
     </LayoutTemplate>
     <ItemTemplate>
         <li>
-            <nav:NavigationHyperLink ID="pageLink" runat="server" ToData='<%# new NavigationData(){{ "page" , Item.Index }} %>' Text='<%#: Item.GroupText %>' Direction="Refresh" IncludeCurrentData="true" PostBack="true" />
+            <nav:NavigationHyperLink ID="pageLink" runat="server" ToData='<%# new NavigationData(){{ "page" , Item.Index }} %>' Text='<%#: Item.GroupText %>' Direction="Refresh" IncludeCurrentData="true" />
         </li>
     </ItemTemplate>
     <EmptyDataTemplate>

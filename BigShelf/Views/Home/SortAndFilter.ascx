@@ -8,7 +8,7 @@
         </LayoutTemplate>
         <ItemTemplate>
             <li>
-                <nav:NavigationHyperLink ID="filterLink" runat="server" ToData='<%# new NavigationData(){{ "filter" , Item.Filter }, { "page", "" }} %>' Text='<%#: Item.Text %>' Direction="Refresh" IncludeCurrentData="true" PostBack="true" />
+                <nav:NavigationHyperLink ID="filterLink" runat="server" ToData='<%# new NavigationData(){{ "filter" , Item.Filter }, { "page", "" }} %>' Text='<%#: Item.Text %>' Direction="Refresh" IncludeCurrentData="true" />
             </li>
         </ItemTemplate>
     </asp:ListView>
@@ -19,7 +19,7 @@
         </LayoutTemplate>
         <ItemTemplate>
             <li>
-                <nav:NavigationHyperLink ID="sortLink" runat="server" ToData='<%# new NavigationData(){{ "sort" , Item.Sort }, { "sortAscending" , Item.Ascending }, { "page", "" }} %>' Text='<%#: Item.Text %>' Direction="Refresh" IncludeCurrentData="true" PostBack="true" />
+                <nav:NavigationHyperLink ID="sortLink" runat="server" ToData='<%# new NavigationData(){{ "sort" , Item.Sort }, { "sortAscending" , Item.Ascending }, { "page", "" }} %>' Text='<%#: Item.Text %>' Direction="Refresh" IncludeCurrentData="true" />
             </li>
         </ItemTemplate>
     </asp:ListView>
