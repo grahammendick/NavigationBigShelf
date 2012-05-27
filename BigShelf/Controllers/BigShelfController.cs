@@ -20,6 +20,7 @@ namespace BigShelf.Controllers
 	public class BigShelfController
 	{
 		private BigShelfEntities DbContext = new BigShelfEntities();
+		private int TotalItems = 0;
 
 		public IEnumerable<Book> GetBooksForSearch(
 			[NavigationData] Sort sort,
@@ -28,6 +29,7 @@ namespace BigShelf.Controllers
 			[NavigationData] int pageSize)
 		{
 			IQueryable<Book> booksQuery = this.DbContext.Books;
+			TotalItems = booksQuery.Count();
 			return this.ApplyOrderBy(booksQuery, sort, sortAscending).Skip((page - 1) * pageSize).Take(pageSize).ToList();
 		}
 
@@ -59,6 +61,22 @@ namespace BigShelf.Controllers
 		public BookViewModel GetBook([Control] int id)
 		{
 			return new BookViewModel(DbContext.Books.Single(b => b.Id == id));
+		}
+
+		public IEnumerable<PagingViewModel> GetPages(
+			[NavigationData] int page,
+			[NavigationData] int pageSize)
+		{
+			if (TotalItems == 0) yield break;
+			for (int firstOnPage = 1, index = 1; firstOnPage <= TotalItems; firstOnPage += pageSize, index++)
+			{
+				int lastOnPage = Math.Min(firstOnPage + pageSize - 1, TotalItems);
+				yield return new PagingViewModel()
+				{
+					Index = index,
+					GroupText = firstOnPage + "-" + lastOnPage
+				};
+			}
 		}
 	}
 }

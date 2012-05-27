@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BigShelf.Views.Home.Index" MasterPageFile="~/Views/Shared/Layout.Master" %>
 <%@ Register src="Book.ascx" tagname="Book" tagprefix="book" %>
+<%@ Register src="Paging.ascx" tagname="Paging" tagprefix="page" %>
 <asp:Content ID="C" runat="server" ContentPlaceHolderID="Content">
     <asp:ListView ID="BookList" runat="server" ItemType="BigShelf.Models.Book" SelectMethod="GetBooksForSearch" OnCallingDataMethods="Page_CallingDataMethods">
         <LayoutTemplate>
@@ -12,4 +13,5 @@
             </li>
         </ItemTemplate>
     </asp:ListView>
+    <page:Paging ID="Paging" runat="server" />
 </asp:Content>
