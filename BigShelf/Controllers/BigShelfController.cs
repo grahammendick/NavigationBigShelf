@@ -28,6 +28,7 @@ namespace BigShelf.Controllers
 	{
 		private BigShelfEntities DbContext = new BigShelfEntities();
 		private int TotalItems = 0;
+		private IEnumerable<FlaggedBook> FlaggedBooksForUser;
 
 		public IEnumerable<Book> GetBooksForSearch(
 			[NavigationData] Filter filter,
@@ -85,8 +86,40 @@ namespace BigShelf.Controllers
 
 		public BookViewModel GetBook([Control] int id)
 		{
-			return new BookViewModel(DbContext.Books.Single(b => b.Id == id));
+			return new BookViewModel(DbContext.Books.Single(b => b.Id == id), GetFlaggedBooksForUser());
 		}
+
+		public void UpdateBook(BookViewModel bookViewModel)
+		{
+			FlaggedBook flaggedBook = this.GetFlaggedBooksForUser().FirstOrDefault(b => b.BookId == bookViewModel.Id);
+			if (flaggedBook == null)
+			{
+				flaggedBook = new FlaggedBook();
+				flaggedBook.ProfileId = 1;
+				flaggedBook.BookId = bookViewModel.Id;
+				flaggedBook.Rating = bookViewModel.Rating;
+				flaggedBook.IsFlaggedToRead = bookViewModel.Rating == 0 ? 1 : 0;
+				DbContext.FlaggedBooks.Add(flaggedBook);
+			}
+			else
+			{
+				flaggedBook.Rating = bookViewModel.Rating;
+				flaggedBook.IsFlaggedToRead = bookViewModel.Rating == 0 ? 1 : 0;
+			}
+			DbContext.SaveChanges();
+			FlaggedBooksForUser = null;
+		}
+
+		public IEnumerable<FlaggedBook> GetFlaggedBooksForUser()
+		{
+			if (FlaggedBooksForUser == null)
+			{
+				int authenticatedProfileId = 1;
+				FlaggedBooksForUser = this.DbContext.FlaggedBooks.Where(f => f.ProfileId == authenticatedProfileId).ToList();
+			}
+			return FlaggedBooksForUser;
+		}
+
 
 		public IEnumerable<PagingViewModel> GetPages(
 			[NavigationData] Filter filter,
