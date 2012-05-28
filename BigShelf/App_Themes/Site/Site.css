@@ -7,23 +7,23 @@
             margin: 0;
         }
 
-    body > header {
+    header {
         background-image: url(Images/header-background.png);
         height: 246px;
     }
-        body > header .logo 
+        header .logo 
         {
             width: 944px; height: 197px;
             margin: 0 auto;
             position: relative;
         }
-            body > header .logo img { position: absolute; bottom: 0; }
-        body > header nav { color: White; font-weight: bold; width: 944px; margin: 0 auto; text-align:right; }
-            body > header nav ul { margin: 0; padding: 0; }
-            body > header nav li { list-style-type: none; display: inline; padding-left: 10px; }
-            body > header nav a { color: White; text-decoration: none }
+            header .logo img { position: absolute; bottom: 0; }
+        header nav { color: White; font-weight: bold; width: 944px; margin: 0 auto; text-align:right; }
+            header nav ul { margin: 0; padding: 0; }
+            header nav li { list-style-type: none; display: inline; padding-left: 10px; }
+            header nav a { color: White; text-decoration: none }
 
-     body > section {
+     section {
         width: 944px;
         margin: 0 auto;
         }

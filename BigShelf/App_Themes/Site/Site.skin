@@ -1,1 +1,2 @@
-﻿
+﻿<asp:FormView runat="server" RenderOuterTable="false"/>
+<asp:Image runat="server" SkinID="header" ImageUrl="Images/header-logo.png"/>

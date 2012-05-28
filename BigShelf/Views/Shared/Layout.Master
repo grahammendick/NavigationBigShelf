@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="BigShelf.Views.Shared.Layout" %>
+<%@ Register Assembly="Navigation" Namespace="Navigation" TagPrefix="nav" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -6,7 +7,21 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ContentPlaceHolder ID="Content" runat="server"/>
+        <header>
+            <div class="logo">
+                <nav:NavigationHyperLink ID="homeLink" runat="server" Direction="Refresh">
+                    <asp:Image ID="headerImage" runat="server" SkinID="header" />
+                </nav:NavigationHyperLink>
+            </div>
+            <nav>
+                <ul>
+                    <li>Welcome, demo@navigation.codeplex.com</li>
+                </ul>
+            </nav>        
+        </header>
+        <section class="main">
+           <asp:ContentPlaceHolder ID="Content" runat="server"/>
+        </section>
     </form>
 </body>
 </html>
