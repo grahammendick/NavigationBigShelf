@@ -8,7 +8,7 @@
         </LayoutTemplate>
         <ItemTemplate>
             <li>
-                <nav:NavigationHyperLink ID="filterLink" runat="server" ToData='<%# new NavigationData(){{ "filter" , Item.Filter }, { "page", "" }} %>' Text='<%#: Item.Text %>' Enabled='<%# Item.Enabled %>' CssClass='<%# Item.CssClass %>' Direction="Refresh" IncludeCurrentData="true" />
+                <nav:NavigationHyperLink ID="filterLink" runat="server" ToData='<%# new NavigationData(){{ "filter" , Item.Filter }, { "friends" , Item.Friends }, { "page", "" }} %>' Text='<%#: Item.Text %>' Enabled='<%# Item.Enabled %>' CssClass='<%# Item.CssClass %>' Direction="Refresh" IncludeCurrentData="true" />
             </li>
         </ItemTemplate>
     </asp:ListView>
@@ -29,4 +29,16 @@
             <asp:Button ID="searchButton" runat="server" Text="Search" CommandName="Update" />
         </EditItemTemplate>
     </asp:FormView>
+    <asp:ListView ID="FriendsList" runat="server" ItemType="BigShelf.Controllers.FriendViewModel" SelectMethod="GetFriends" OnCallingDataMethods="Page_CallingDataMethods">
+        <LayoutTemplate>
+            <p>
+                <label>Show friends:</label>
+                <span id="itemPlaceHolder" runat="server" />
+                <asp:Button ID="friendButton" runat="server" Text="Filter" />
+            </p>
+        </LayoutTemplate>
+        <ItemTemplate>
+            <asp:CheckBox ID="friendCheck" runat="server" Checked='<%# Item.Checked %>' CssClass="friend" Text='<%#: Item.Name %>' value='<%# Item.Id %>' OnCheckedChanged="friendCheck_CheckedChanged" />
+        </ItemTemplate>
+    </asp:ListView>
 </div>

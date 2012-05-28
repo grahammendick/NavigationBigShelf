@@ -33,5 +33,11 @@
 				return Enabled ? "" : "selected";
 			}
 		}
+
+		public string Friends
+		{
+			get;
+			set;
+		}
 	}
 }

@@ -32,6 +32,7 @@ namespace BigShelf.Controllers
 
 		public IEnumerable<Book> GetBooksForSearch(
 			[NavigationData] Filter filter,
+			[NavigationData] string friends,
 			[NavigationData] Sort sort,
 			[NavigationData] string title,
 			[NavigationData] bool sortAscending,
@@ -39,21 +40,28 @@ namespace BigShelf.Controllers
 			[NavigationData] int pageSize)
 		{
 			IQueryable<Book> booksQuery = this.DbContext.Books;
-			booksQuery = this.ApplyFilter(booksQuery, filter);
+			booksQuery = this.ApplyFilter(booksQuery, filter, friends);
 			if (title != null)
 				booksQuery = booksQuery.Where(p => p.Title.Contains(title));
 			TotalItems = booksQuery.Count();
 			return this.ApplyOrderBy(booksQuery, sort, sortAscending).Skip((page - 1) * pageSize).Take(pageSize).ToList();
 		}
 
-		private IQueryable<Book> ApplyFilter(IQueryable<Book> booksQuery, Filter filter)
+		private IQueryable<Book> ApplyFilter(IQueryable<Book> booksQuery, Filter filter, string friends)
 		{
 			switch (filter)
 			{
 				case Filter.Mine:
 					return booksQuery.Where(p => p.FlaggedBooks.Any(q => q.ProfileId == 1));
 				case Filter.Friends:
-					return booksQuery;
+					{
+						if (!string.IsNullOrEmpty(friends))
+						{
+							int[] profileIdInts = friends.Split('.').Select(p => int.Parse(p)).ToArray();
+							booksQuery = booksQuery.Where(p => p.FlaggedBooks.Any(q => profileIdInts.Contains(q.ProfileId)));
+						}
+						return booksQuery;
+					}
 				default:
 					return booksQuery;
 			}
@@ -128,6 +136,7 @@ namespace BigShelf.Controllers
 
 		public IEnumerable<PagingViewModel> GetPages(
 			[NavigationData] Filter filter,
+			[NavigationData] string friends,
 			[NavigationData] string title,
 			[NavigationData] int page,
 			[NavigationData] int pageSize)
@@ -154,9 +163,27 @@ namespace BigShelf.Controllers
 
 		public IEnumerable<FilterViewModel> GetFilterOptions([NavigationData] Filter filter)
 		{
-			yield return new FilterViewModel() { Text = "All", Filter = "All", Enabled = filter != Filter.All };
-			yield return new FilterViewModel() { Text = "My books", Filter = "Mine", Enabled = filter != Filter.Mine };
-			yield return new FilterViewModel() { Text = "Just friends", Filter = "Friends", Enabled = filter != Filter.Friends };
+			string friends = string.Join(".", GetProfileForSearch().Friends.Select(f => f.FriendId));
+			yield return new FilterViewModel() { Text = "All", Filter = "All", Enabled = filter != Filter.All, Friends = string.Empty };
+			yield return new FilterViewModel() { Text = "My books", Filter = "Mine", Enabled = filter != Filter.Mine, Friends = string.Empty };
+			yield return new FilterViewModel() { Text = "Just friends", Filter = "Friends", Enabled = filter != Filter.Friends, Friends = friends };
+		}
+
+		public IEnumerable<FriendViewModel> GetFriends(
+			[NavigationData] Filter filter,
+			[NavigationData] string friends)
+		{
+			if (filter != Filter.Friends)
+				return new List<FriendViewModel>();
+			List<string> friendList = (friends ?? string.Empty).Split('.').Where(s => s != string.Empty).ToList();
+			return GetProfileForSearch().Friends.Select(f => new FriendViewModel(f) { Checked = friendList.Contains(f.FriendId.ToString()) });
+
+		}
+
+		public Profile GetProfileForSearch()
+		{
+			var authenticatedProfileId = 1;
+			return this.DbContext.Profiles.Include("Friends.FriendProfile").Include("FlaggedBooks").Single(p => p.Id == authenticatedProfileId);
 		}
 
 		public FilterViewModel GetSearch([NavigationData] string title)
