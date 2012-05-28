@@ -110,6 +110,12 @@ namespace BigShelf.Controllers
 			FlaggedBooksForUser = null;
 		}
 
+		public void RateBook(BookViewModel bookViewModel)
+		{
+			if (bookViewModel.Rating != 0)
+				UpdateBook(bookViewModel);
+		}
+
 		public IEnumerable<FlaggedBook> GetFlaggedBooksForUser()
 		{
 			if (FlaggedBooksForUser == null)
@@ -119,7 +125,6 @@ namespace BigShelf.Controllers
 			}
 			return FlaggedBooksForUser;
 		}
-
 
 		public IEnumerable<PagingViewModel> GetPages(
 			[NavigationData] Filter filter,
@@ -163,6 +168,16 @@ namespace BigShelf.Controllers
 		{
 			StateContext.Bag.title = search.Title;
 			StateContext.Bag.page = null;
+		}
+
+		public IEnumerable<KeyValuePair<string, string>> GetRatings()
+		{
+			yield return new KeyValuePair<string, string>("0", "");
+			yield return new KeyValuePair<string, string>("1", "");
+			yield return new KeyValuePair<string, string>("2", "");
+			yield return new KeyValuePair<string, string>("3", "");
+			yield return new KeyValuePair<string, string>("4", "");
+			yield return new KeyValuePair<string, string>("5", "");
 		}
 	}
 }

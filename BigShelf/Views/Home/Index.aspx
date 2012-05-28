@@ -2,7 +2,7 @@
 <%@ Register src="Book.ascx" tagname="Book" tagprefix="book" %>
 <%@ Register src="Paging.ascx" tagname="Paging" tagprefix="page" %>
 <%@ Register src="SortAndFilter.ascx" tagname="SortAndFilter" tagprefix="saf" %>
-<asp:Content ID="C" runat="server" ContentPlaceHolderID="Content">
+<asp:Content ID="Content" runat="server" ContentPlaceHolderID="Content">
     <saf:SortAndFilter ID="SortAndFilter" runat="server" />
     <asp:ListView ID="BookList" runat="server" ItemType="BigShelf.Models.Book" SelectMethod="GetBooksForSearch" OnCallingDataMethods="Page_CallingDataMethods">
         <LayoutTemplate>
