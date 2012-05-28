@@ -4,7 +4,11 @@
 <%@ Register src="SortAndFilter.ascx" tagname="SortAndFilter" tagprefix="saf" %>
 <%@ Register Assembly="Navigation" Namespace="Navigation" TagPrefix="nav" %>
 <asp:Content ID="Content" runat="server" ContentPlaceHolderID="Content">
-    <asp:ScriptManager ID="ScriptManager" runat="server" />
+    <asp:ScriptManager ID="ScriptManager" runat="server" EnableHistory="true" EnableSecureHistoryState="false">
+		<Scripts>
+			<asp:ScriptReference Name="Navigation.HTML5History.js" Assembly="Navigation" />
+		</Scripts>
+    </asp:ScriptManager>
     <saf:SortAndFilter ID="SortAndFilter" runat="server" />
     <asp:UpdatePanel ID="BookPanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
         <ContentTemplate>
@@ -30,4 +34,5 @@
         </Triggers>
     </asp:UpdatePanel>
     <page:Paging ID="Paging" runat="server" />
+    <nav:HistoryNavigator ID="Navigator" runat="server" />
 </asp:Content>
