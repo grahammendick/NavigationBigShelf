@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BigShelf.Views.Home.Index" MasterPageFile="~/Views/Shared/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BigShelf.Views.Home.Index" MasterPageFile="~/Views/Shared/Layout.Master" Theme="Site" %>
 <%@ Register src="Book.ascx" tagname="Book" tagprefix="book" %>
 <%@ Register src="Paging.ascx" tagname="Paging" tagprefix="page" %>
 <%@ Register src="SortAndFilter.ascx" tagname="SortAndFilter" tagprefix="saf" %>

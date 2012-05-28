@@ -1,2 +1,96 @@
 ﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+        padding: 0;
+            margin: 0;
+        }
+
+    body > header {
+        background-image: url(Images/header-background.png);
+        height: 246px;
+    }
+        body > header .logo 
+        {
+            width: 944px; height: 197px;
+            margin: 0 auto;
+            position: relative;
+        }
+            body > header .logo img { position: absolute; bottom: 0; }
+        body > header nav { color: White; font-weight: bold; width: 944px; margin: 0 auto; text-align:right; }
+            body > header nav ul { margin: 0; padding: 0; }
+            body > header nav li { list-style-type: none; display: inline; padding-left: 10px; }
+            body > header nav a { color: White; text-decoration: none }
+
+     body > section {
+        width: 944px;
+        margin: 0 auto;
+        }
+
+img { border: 0 }
+h2 { font-family: Segoe UI,Georgia; color: #999; font-size: 18pt; font-weight: normal; }
+fieldset { padding: 15px; }
+legend { font-weight: bold }
+.error { color: Red }
+
+.login-form .fieldgroup { padding-bottom: 8px; }
+    .login-form .fieldgroup label { min-width: 70px; display: inline-block; }
+    .login-form .fieldgroup label:after { content: ':' }
+    
+.input-validation-error { border-color: Red; background-color: #FAA; }
+.field-validation-error, .validation-summary-errors { color: Red; }
+
+ul.books { padding: 0 }
+    ul.books > li { width: 33%; height: 200px; float:left; list-style-type: none; overflow: hidden; position: relative; }
+        ul.books .coverCol { position: absolute; left: 10px; width: 110px; text-align: center; }
+            ul.books .coverCol img { max-width: 90px; height: 110px; margin-bottom: 5px; }
+            ul.books .coverCol button { background-color: #a00; color: White; font-weight: bold; min-width: 70px; }
+                ul.books .coverCol button:disabled { background-color: Gray; border-color: silver; font-weight: normal; }
+        ul.books .details { margin-left: 120px; padding-right: 12px; }
+        ul.books .title { color: #555; font-size: 10pt; margin: 0px 0px 4px 0px; padding: 0; }
+        ul.books .author { font-size: 9pt; margin-bottom: 5px; }
+        ul.books li.updating { filter: alpha(opaczity=50); opacity: 0.5; }
+
+ul.paging { display: inline; padding: 0; }
+ul.paging li { list-style-type: none; display: inline; margin-left: 10px; }
+    ul.paging li a.selected { text-decoration: none; color: Gray; font-weight: bold }
+
+.sortAndFilter { padding-bottom: 16px; color: Gray; }
+    .sortAndFilter ul { display: inline; padding: 0; }
+        .sortAndFilter li { list-style-type: none; display: inline; margin-left: 8px; text-decoration: underline; cursor: pointer; }
+        .sortAndFilter li.selected { font-weight: bold; text-decoration: none; cursor: inherit; }
+    .sortAndFilter ul + label, .sortAndFilter ul + input { margin-left: 40px; }
+
+.star { width: 13px; height: 13px; display: inline-block; background-image: url(Images/star-off.png); cursor: pointer; }
+    .star.chosen { background-image: url(Images/star-on.png) }
+
+.profile-form .fieldgroup { margin-bottom: 10px; }
+.profile-form label { min-width: 100px; display: inline-block; text-align: right; color: Gray; padding-right: 5px; }
+.profile-form input { height: 22px; border: 1px solid silver; width: 420px; padding-left: 3px; }
+.profile-form .friends { margin-top: 10px; }
+.profile-form .friends label { vertical-align: top; margin-top: 4px; }
+.profile-form .friends-controls { display: inline-block; width: 425px; }
+.form-action { background-color: #C87E0F; border: none; color: White; padding: 4px 9px; cursor: pointer; }
+    .form-action:disabled { background-color: Silver; cursor: default; }
+
+.friends-controls input { width: 420px }
+.friends-list {
+    border: 1px solid silver; height: 100px; padding: 0;
+    list-style-type: none; margin: 0 0 10px 0;
 }
+    .friends-list li { float: left; border: 1px solid #BBD8FB; background-color: #E9EEFA; padding: 1px 8px; margin: 3px; }
+    .friends-list li.added { background-color: #D2FFD2; border-color: green; }
+    .friends-list li.deleted { background-color: #FFD2D2; border-color: red; text-decoration: line-through }
+    .friends-list li .icon { display: inline-block; width: 13px; height: 11px; background-repeat: no-repeat; cursor: pointer; background-image: url(Images/editing-deleted.png) }
+    .friends-list li.deleted .icon { background-image: url(Images/editing-revert.png); }
+
+.revertible.modified { background-color: #F5C47A }
+.reverter { margin-left: -23px; cursor: pointer; width: 12px; height: 12px; background-image: url(Images/editing-revert.png); display: inline-block; }
+
+.clearfix:before, .clearfix:after { content: "."; display: block; height: 0; overflow: hidden; }
+    .clearfix:after { clear: both; }
+    .clearfix { zoom: 1; } /* IE < 8 */
+
+ol.ratings { display: inline; padding: 0; list-style-type: none; }
+    ol.ratings li{float: left;}
