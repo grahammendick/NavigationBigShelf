@@ -13,6 +13,15 @@ namespace BigShelf.Views.Home {
     public partial class Index {
         
         /// <summary>
+        /// ScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager;
+        
+        /// <summary>
         /// SortAndFilter control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace BigShelf.Views.Home {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BigShelf.Views.Home.SortAndFilter SortAndFilter;
+        
+        /// <summary>
+        /// BookPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel BookPanel;
         
         /// <summary>
         /// BookList control.

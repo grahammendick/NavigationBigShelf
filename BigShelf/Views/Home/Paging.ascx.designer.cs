@@ -13,6 +13,15 @@ namespace BigShelf.Views.Home {
     public partial class Paging {
         
         /// <summary>
+        /// PagingPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel PagingPanel;
+        
+        /// <summary>
         /// PagingList control.
         /// </summary>
         /// <remarks>
