@@ -45,8 +45,8 @@ ul.books { padding: 0 }
     ul.books > li { width: 33%; height: 200px; float:left; list-style-type: none; overflow: hidden; position: relative; }
         ul.books .coverCol { position: absolute; left: 10px; width: 110px; text-align: center; }
             ul.books .coverCol img { max-width: 90px; height: 110px; margin-bottom: 5px; }
-            ul.books .coverCol button { background-color: #a00; color: White; font-weight: bold; min-width: 70px; }
-                ul.books .coverCol button:disabled { background-color: Gray; border-color: silver; font-weight: normal; }
+            ul.books .coverCol .button { background-color: #a00; color: White; font-weight: bold; min-width: 70px; }
+                ul.books .coverCol .button:disabled { background-color: Gray; border-color: silver; font-weight: normal; }
         ul.books .details { margin-left: 120px; padding-right: 12px; }
         ul.books .title { color: #555; font-size: 10pt; margin: 0px 0px 4px 0px; padding: 0; }
         ul.books .author { font-size: 9pt; margin-bottom: 5px; }

@@ -3,7 +3,7 @@
     <EditItemTemplate>
         <div class="coverCol">
             <img id="bookImage" runat="server" src='<%# Item.CoverImageUrl %>' alt='<%# Item.Title %>' />
-            <asp:Button ID="flagButton" runat="server" Text='<%# Item.StatusText %>' Enabled='<%# Item.CanFlagToRead %>' CssClass="flagToRead" CommandName="Update" />
+            <asp:Button ID="flagButton" runat="server" Text='<%# Item.StatusText %>' Enabled='<%# Item.CanFlagToRead %>' CssClass="button flagToRead" CommandName="Update" />
         </div>
         <div class="details">
             <h3 class="title"><%#: Item.Title %></h3>
