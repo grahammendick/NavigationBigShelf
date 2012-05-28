@@ -54,12 +54,14 @@ ul.books { padding: 0 }
 
 ul.paging { display: inline; padding: 0; }
 ul.paging li { list-style-type: none; display: inline; margin-left: 10px; }
+    ul.paging li a, ul.paging li a:visited { color: Blue }
     ul.paging li a.selected { text-decoration: none; color: Gray; font-weight: bold }
 
-.sortAndFilter { padding-bottom: 16px; color: Gray; }
+.sortAndFilter{ padding-bottom: 16px; color: Gray; }
     .sortAndFilter ul { display: inline; padding: 0; }
-        .sortAndFilter li { list-style-type: none; display: inline; margin-left: 8px; text-decoration: underline; cursor: pointer; }
-        .sortAndFilter li.selected { font-weight: bold; text-decoration: none; cursor: inherit; }
+        .sortAndFilter li { list-style-type: none; display: inline; margin-left: 8px; cursor: pointer; }
+        .sortAndFilter a, .sortAndFilter a:visited{ color: Gray; }
+        .sortAndFilter li a.selected { font-weight: bold; text-decoration: none; cursor: text; }
     .sortAndFilter ul + label, .sortAndFilter ul + input { margin-left: 40px; }
 
 .star { width: 13px; height: 13px; display: inline-block; background-image: url(Images/star-off.png); cursor: pointer; }

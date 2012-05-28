@@ -68,6 +68,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Site\Images\editing-deleted.png" />
+    <Content Include="App_Themes\Site\Images\editing-edited.png" />
+    <Content Include="App_Themes\Site\Images\editing-revert.png" />
+    <Content Include="App_Themes\Site\Images\header-background.png" />
+    <Content Include="App_Themes\Site\Images\header-logo.png" />
+    <Content Include="App_Themes\Site\Images\horizontal-separator.png" />
+    <Content Include="App_Themes\Site\Images\star-off.png" />
+    <Content Include="App_Themes\Site\Images\star-on.png" />
     <Content Include="App_Themes\Site\Site.css" />
     <Content Include="Scripts\jquery-1.7.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
@@ -150,7 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_Themes\Site\Images\" />
     <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>

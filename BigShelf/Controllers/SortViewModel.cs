@@ -8,6 +8,12 @@
 			set;
 		}
 
+		public bool Enabled
+		{
+			get;
+			set;
+		}
+
 		public string Sort
 		{
 			get;
@@ -18,6 +24,14 @@
 		{
 			get;
 			set;
+		}
+
+		public string CssClass
+		{
+			get
+			{
+				return Enabled ? "" : "selected";
+			}
 		}
 	}
 }

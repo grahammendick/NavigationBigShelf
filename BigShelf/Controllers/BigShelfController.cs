@@ -146,17 +146,17 @@ namespace BigShelf.Controllers
 
 		public IEnumerable<SortViewModel> GetSortOptions([NavigationData] Sort sort)
 		{
-			yield return new SortViewModel() { Text = "Title", Sort = "Title", Ascending = true };
-			yield return new SortViewModel() { Text = "Author", Sort = "Author", Ascending = true };
-			yield return new SortViewModel() { Text = "Rating", Sort = "Rating" };
-			yield return new SortViewModel() { Text = "Might Read", Sort = "MightRead" };
+			yield return new SortViewModel() { Text = "Title", Sort = "Title", Enabled = sort != Sort.Title, Ascending = true };
+			yield return new SortViewModel() { Text = "Author", Sort = "Author", Enabled = sort != Sort.Author, Ascending = true };
+			yield return new SortViewModel() { Text = "Rating", Sort = "Rating", Enabled = sort != Sort.Rating };
+			yield return new SortViewModel() { Text = "Might Read", Sort = "MightRead", Enabled = sort != Sort.MightRead };
 		}
 
 		public IEnumerable<FilterViewModel> GetFilterOptions([NavigationData] Filter filter)
 		{
-			yield return new FilterViewModel() { Text = "All", Filter = "All" };
-			yield return new FilterViewModel() { Text = "My books", Filter = "Mine" };
-			yield return new FilterViewModel() { Text = "Just friends", Filter = "Friends" };
+			yield return new FilterViewModel() { Text = "All", Filter = "All", Enabled = filter != Filter.All };
+			yield return new FilterViewModel() { Text = "My books", Filter = "Mine", Enabled = filter != Filter.Mine };
+			yield return new FilterViewModel() { Text = "Just friends", Filter = "Friends", Enabled = filter != Filter.Friends };
 		}
 
 		public FilterViewModel GetSearch([NavigationData] string title)
