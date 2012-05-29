@@ -77,6 +77,7 @@
     <Content Include="App_Themes\Site\Images\star-off.png" />
     <Content Include="App_Themes\Site\Images\star-on.png" />
     <Content Include="App_Themes\Site\Site.css" />
+    <Content Include="Controls\AutoPostBackBehavior.js" />
     <Content Include="Scripts\jquery-1.7.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
@@ -95,6 +96,7 @@
     <Compile Include="Controllers\FriendViewModel.cs" />
     <Compile Include="Controllers\PagingViewModel.cs" />
     <Compile Include="Controllers\SortViewModel.cs" />
+    <Compile Include="Controls\AutoPostBackExtender.cs" />
     <Compile Include="Models\BigShelfModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Home\Book.ascx.cs">
@@ -159,7 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

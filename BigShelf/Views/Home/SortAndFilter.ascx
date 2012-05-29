@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SortAndFilter.ascx.cs" Inherits="BigShelf.Views.Home.SortAndFilter" %>
 <%@ Register Assembly="Navigation" Namespace="Navigation" TagPrefix="nav" %>
+<%@ Register Assembly="BigShelf" Namespace="BigShelf.Controls" TagPrefix="big" %>
 <asp:UpdatePanel ID="SortAndFilterPanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false" RenderMode="Inline">
     <ContentTemplate>
         <div class="sortAndFilter">
@@ -28,6 +29,7 @@
             <asp:FormView ID="SearchForm" runat="server" ItemType="BigShelf.Controllers.FilterViewModel" SelectMethod="GetSearch" UpdateMethod="SetSearch" OnCallingDataMethods="Page_CallingDataMethods" DefaultMode="Edit">
                 <EditItemTemplate>
                     <asp:TextBox ID="titleText" runat="server" Text='<%# BindItem.Title %>' placeholder="Search books..." />
+                    <big:AutoPostBackExtender ID="titleExtender" runat="server" TargetControlID="titleText" Trigger="keydown" Throttle="400" CommandName="Update" ClientIDMode="AutoID" />
                     <asp:Button ID="searchButton" runat="server" Text="Search" CommandName="Update" />
                 </EditItemTemplate>
             </asp:FormView>
@@ -40,7 +42,7 @@
                     </p>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <asp:CheckBox ID="friendCheck" runat="server" Checked='<%# Item.Checked %>' CssClass="friend" Text='<%#: Item.Name %>' value='<%# Item.Id %>' OnCheckedChanged="friendCheck_CheckedChanged" />
+                    <asp:CheckBox ID="friendCheck" runat="server" Checked='<%# Item.Checked %>' CssClass="friend" Text='<%#: Item.Name %>' value='<%# Item.Id %>' OnCheckedChanged="friendCheck_CheckedChanged" AutoPostBack="true" ClientIDMode="AutoID" />
                 </ItemTemplate>
             </asp:ListView>
         </div>

@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Book.ascx.cs" Inherits="BigShelf.Views.Home.Book" %>
+<%@ Register Assembly="BigShelf" Namespace="BigShelf.Controls" TagPrefix="big" %>
 <asp:UpdatePanel ID="Panel" runat="server" UpdateMode="Conditional">
     <ContentTemplate>
         <asp:FormView ID="BookForm" runat="server" ItemType="BigShelf.Controllers.BookViewModel" DataKeyNames="Id" SelectMethod="GetBook" UpdateMethod="UpdateBook" DeleteMethod="RateBook" DefaultMode="Edit" OnCallingDataMethods="Page_CallingDataMethods">
@@ -12,6 +13,7 @@
                     <div class="author">by <span><%#: Item.Author %></span></div>
                     <div>
                         <asp:RadioButtonList ID="ratingList" runat="server" RepeatLayout="OrderedList" SelectedValue='<%# BindItem.Rating %>' CssClass="ratings" DataValueField="Key" DataTextField="Value" SelectMethod="GetRatings" OnCallingDataMethods="Page_CallingDataMethods"/>
+                        <big:AutoPostBackExtender ID="ratingExtender" runat="server" TargetControlID="ratingList" Trigger="click" CommandName="Delete" ClientIDMode="AutoID" />
                         <asp:Button ID="ratingButton" runat="server" Text="Rate" CommandName="Delete" />
                     </div>
                 </div>
