@@ -14,7 +14,7 @@
                     <div>
                         <asp:RadioButtonList ID="ratingList" runat="server" RepeatLayout="OrderedList" SelectedValue='<%# BindItem.Rating %>' CssClass="ratings" DataValueField="Key" DataTextField="Value" SelectMethod="GetRatings" OnCallingDataMethods="Page_CallingDataMethods"/>
                         <big:AutoPostBackExtender ID="ratingExtender" runat="server" TargetControlID="ratingList" Trigger="click" CommandName="Delete" ClientIDMode="AutoID" />
-                        <asp:Button ID="ratingButton" runat="server" Text="Rate" CommandName="Delete" />
+                        <asp:Button ID="ratingButton" runat="server" Text="Rate" CommandName="Delete" CssClass="no-js" />
                     </div>
                 </div>
             </EditItemTemplate>

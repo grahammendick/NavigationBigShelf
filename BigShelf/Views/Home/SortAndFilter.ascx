@@ -30,7 +30,7 @@
                 <EditItemTemplate>
                     <asp:TextBox ID="titleText" runat="server" Text='<%# BindItem.Title %>' placeholder="Search books..." />
                     <big:AutoPostBackExtender ID="titleExtender" runat="server" TargetControlID="titleText" Trigger="keydown" Throttle="400" CommandName="Update" ClientIDMode="AutoID" />
-                    <asp:Button ID="searchButton" runat="server" Text="Search" CommandName="Update" />
+                    <asp:Button ID="searchButton" runat="server" Text="Search" CssClass="no-js" CommandName="Update" />
                 </EditItemTemplate>
             </asp:FormView>
             <asp:ListView ID="FriendsList" runat="server" ItemType="BigShelf.Controllers.FriendViewModel" SelectMethod="GetFriends" OnCallingDataMethods="Page_CallingDataMethods">
@@ -38,7 +38,7 @@
                     <p>
                         <label>Show friends:</label>
                         <span id="itemPlaceHolder" runat="server" />
-                        <asp:Button ID="friendButton" runat="server" Text="Filter" />
+                        <asp:Button ID="friendButton" runat="server" Text="Filter" CssClass="no-js" />
                     </p>
                 </LayoutTemplate>
                 <ItemTemplate>

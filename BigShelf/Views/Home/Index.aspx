@@ -35,4 +35,9 @@
     </asp:UpdatePanel>
     <page:Paging ID="Paging" runat="server" />
     <nav:HistoryNavigator ID="Navigator" runat="server" />
+    <script type="text/javascript">
+        $(function () {
+            $("html").addClass('js')
+        });
+    </script>
 </asp:Content>
