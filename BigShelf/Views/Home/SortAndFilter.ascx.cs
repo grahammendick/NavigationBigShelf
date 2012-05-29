@@ -25,5 +25,10 @@ namespace BigShelf.Views.Home
 			StateContext.Bag.friends = string.Join(".", friendList);
 			StateContext.Bag.page = null;
 		}
+
+		protected void ScriptManager_Navigate(object sender, HistoryEventArgs e)
+		{
+			SortAndFilterPanel.Update();
+		}
 	}
 }

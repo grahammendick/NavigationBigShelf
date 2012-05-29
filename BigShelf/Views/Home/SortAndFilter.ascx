@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SortAndFilter.ascx.cs" Inherits="BigShelf.Views.Home.SortAndFilter" %>
 <%@ Register Assembly="Navigation" Namespace="Navigation" TagPrefix="nav" %>
 <%@ Register Assembly="BigShelf" Namespace="BigShelf.Controls" TagPrefix="big" %>
+<asp:ScriptManagerProxy ID="ScriptManager" runat="server" OnNavigate="ScriptManager_Navigate" />
 <asp:UpdatePanel ID="SortAndFilterPanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false" RenderMode="Inline">
     <ContentTemplate>
         <div class="sortAndFilter">
@@ -49,6 +50,7 @@
     </ContentTemplate>
     <Triggers>
         <nav:NavigationDataTrigger Key="filter" />
+        <nav:NavigationDataTrigger Key="friends" />
         <nav:NavigationDataTrigger Key="sort" />
     </Triggers>
 </asp:UpdatePanel>
