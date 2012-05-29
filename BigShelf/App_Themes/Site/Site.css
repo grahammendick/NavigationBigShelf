@@ -50,7 +50,7 @@ ul.books { padding: 0 }
         ul.books .details { margin-left: 120px; padding-right: 12px; }
         ul.books .title { color: #555; font-size: 10pt; margin: 0px 0px 4px 0px; padding: 0; }
         ul.books .author { font-size: 9pt; margin-bottom: 5px; }
-        ul.books li.updating { filter: alpha(opaczity=50); opacity: 0.5; }
+        ul.books .updating { filter: alpha(opaczity=50); opacity: 0.5; }
 
 ul.paging { display: inline; padding: 0; }
 ul.paging li { list-style-type: none; display: inline; margin-left: 10px; }
