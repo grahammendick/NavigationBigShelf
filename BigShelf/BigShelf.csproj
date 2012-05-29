@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Site\Images\delete.gif" />
     <Content Include="App_Themes\Site\Images\editing-deleted.png" />
     <Content Include="App_Themes\Site\Images\editing-edited.png" />
     <Content Include="App_Themes\Site\Images\editing-revert.png" />
@@ -76,11 +77,13 @@
     <Content Include="App_Themes\Site\Images\horizontal-separator.png" />
     <Content Include="App_Themes\Site\Images\star-off.png" />
     <Content Include="App_Themes\Site\Images\star-on.png" />
+    <Content Include="App_Themes\Site\Images\star.gif" />
     <Content Include="App_Themes\Site\Site.css" />
     <Content Include="Controls\AutoPostBackBehavior.js" />
     <Content Include="Scripts\jquery-1.7.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.rating.pack.js" />
     <Content Include="Views\Home\Book.ascx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\Paging.ascx" />
