@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Placeholder.txt" />
     <Content Include="App_Themes\Site\Images\delete.gif" />
     <Content Include="App_Themes\Site\Images\editing-deleted.png" />
     <Content Include="App_Themes\Site\Images\editing-edited.png" />
@@ -162,9 +163,7 @@
   <ItemGroup>
     <Content Include="App_Themes\Site\Site.skin" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
