@@ -18,7 +18,7 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <li>
-                        <asp:HiddenField ID="id" runat="server" Value='<%# Item.Id %>' />
+                        <asp:HiddenField ID="id" runat="server" Value='<%# Item.Id %>' Visible="false" />
                         <book:Book ID="Book" runat="server" />
                     </li>
                 </ItemTemplate>
