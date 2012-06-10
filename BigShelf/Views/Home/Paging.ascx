@@ -20,8 +20,8 @@ Results:
     <Triggers>
         <nav:NavigationDataTrigger Key="filter" />
         <nav:NavigationDataTrigger Key="friends" />
+        <nav:NavigationDataTrigger Key="sort" />
         <nav:NavigationDataTrigger Key="title" />
         <nav:NavigationDataTrigger Key="page" />
-        <nav:NavigationDataTrigger Key="pageSize" />
     </Triggers>
 </asp:UpdatePanel>

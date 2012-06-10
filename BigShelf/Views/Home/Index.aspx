@@ -30,7 +30,6 @@
             <nav:NavigationDataTrigger Key="sort" />
             <nav:NavigationDataTrigger Key="title" />
             <nav:NavigationDataTrigger Key="page" />
-            <nav:NavigationDataTrigger Key="pageSize" />
         </Triggers>
     </asp:UpdatePanel>
     <page:Paging ID="Paging" runat="server" />
