@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BigShelf.Views.Home.Index" MasterPageFile="~/Views/Shared/Layout.Master" Theme="Site" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="BigShelf.Views.Home.Index" MasterPageFile="~/Views/Shared/Layout.Master" Theme="Site" ViewStateMode="Disabled" %>
 <%@ Register src="Book.ascx" tagname="Book" tagprefix="book" %>
 <%@ Register src="Paging.ascx" tagname="Paging" tagprefix="page" %>
 <%@ Register src="SortAndFilter.ascx" tagname="SortAndFilter" tagprefix="saf" %>
@@ -12,7 +12,7 @@
     <saf:SortAndFilter ID="SortAndFilter" runat="server" />
     <asp:UpdatePanel ID="BookPanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
         <ContentTemplate>
-            <asp:ListView ID="BookList" runat="server" ItemType="BigShelf.Models.Book" SelectMethod="GetBooksForSearch" OnCallingDataMethods="Page_CallingDataMethods">
+            <asp:ListView ID="BookList" runat="server" ItemType="BigShelf.Models.Book" SelectMethod="GetBooksForSearch" OnCallingDataMethods="Page_CallingDataMethods" ViewStateMode="Enabled">
                 <LayoutTemplate>
                     <ul class="books clearfix"><li id="itemPlaceHolder" runat="server" /></ul>
                 </LayoutTemplate>
@@ -33,7 +33,7 @@
         </Triggers>
     </asp:UpdatePanel>
     <page:Paging ID="Paging" runat="server" />
-    <nav:HistoryNavigator ID="Navigator" runat="server" />
+    <nav:HistoryNavigator ID="Navigator" runat="server" HistoryKeys="filter,friends,sort,title,page" StateKeys="TotalItems" />
     <script type="text/javascript">
         $(function () {
             $("html").addClass('js')

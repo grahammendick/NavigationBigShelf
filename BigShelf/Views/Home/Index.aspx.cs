@@ -2,6 +2,7 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BigShelf.Controllers;
+using Navigation;
 
 namespace BigShelf.Views.Home
 {
@@ -17,5 +18,9 @@ namespace BigShelf.Views.Home
 			e.DataMethodsObject = Page.Items["controller"];
 		}
 
+		protected void Page_SaveStateComplete(object sender, EventArgs e)
+		{
+			StateContext.Bag.TotalItems = null;
+		}
 	}
 }

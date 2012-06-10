@@ -5,7 +5,7 @@
 <asp:UpdatePanel ID="SortAndFilterPanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false" RenderMode="Inline">
     <ContentTemplate>
         <div class="sortAndFilter">
-            <asp:ListView ID="FilterList" runat="server" ItemType="BigShelf.Controllers.FilterViewModel" SelectMethod="GetFilterOptions" OnCallingDataMethods="Page_CallingDataMethods">
+            <asp:ListView ID="FilterList" runat="server" ItemType="BigShelf.Controllers.FilterViewModel" SelectMethod="GetFilterOptions" OnCallingDataMethods="Page_CallingDataMethods" ViewStateMode="Enabled">
                 <LayoutTemplate>
                     <label>Show me:</label>
                     <ul><li id="itemPlaceHolder" runat="server" /></ul>
@@ -34,7 +34,7 @@
                     <asp:Button ID="searchButton" runat="server" Text="Search" CssClass="no-js" CommandName="Update" />
                 </EditItemTemplate>
             </asp:FormView>
-            <asp:ListView ID="FriendsList" runat="server" ItemType="BigShelf.Controllers.FriendViewModel" SelectMethod="GetFriends" OnCallingDataMethods="Page_CallingDataMethods">
+            <asp:ListView ID="FriendsList" runat="server" ItemType="BigShelf.Controllers.FriendViewModel" SelectMethod="GetFriends" OnCallingDataMethods="Page_CallingDataMethods" ViewStateMode="Enabled">
                 <LayoutTemplate>
                     <p>
                         <label>Show friends:</label>

@@ -26,7 +26,6 @@ namespace BigShelf.Controllers
 	public class BigShelfController
 	{
 		private BigShelfEntities DbContext = new BigShelfEntities();
-		private int TotalItems = 0;
 		private IEnumerable<FlaggedBook> FlaggedBooksForUser;
 
 		public IEnumerable<Book> GetBooksForSearch(
@@ -42,7 +41,7 @@ namespace BigShelf.Controllers
 			booksQuery = this.ApplyFilter(booksQuery, filter, friends);
 			if (title != null)
 				booksQuery = booksQuery.Where(p => p.Title.Contains(title));
-			TotalItems = booksQuery.Count();
+			StateContext.Bag.TotalItems = booksQuery.Count();
 			return this.ApplyOrderBy(booksQuery, sort, sortAscending).Skip((page - 1) * pageSize).Take(pageSize).ToList();
 		}
 
@@ -140,10 +139,10 @@ namespace BigShelf.Controllers
 			[NavigationData] int page,
 			[NavigationData] int pageSize)
 		{
-			if (TotalItems == 0) yield break;
-			for (int firstOnPage = 1, index = 1; firstOnPage <= TotalItems; firstOnPage += pageSize, index++)
+			if (StateContext.Bag.TotalItems == 0) yield break;
+			for (int firstOnPage = 1, index = 1; firstOnPage <= StateContext.Bag.TotalItems; firstOnPage += pageSize, index++)
 			{
-				int lastOnPage = Math.Min(firstOnPage + pageSize - 1, TotalItems);
+				int lastOnPage = Math.Min(firstOnPage + pageSize - 1, StateContext.Bag.TotalItems);
 				yield return new PagingViewModel()
 				{
 					Index = index,
