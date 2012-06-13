@@ -9,4 +9,4 @@ A conversion of the [ASP.NET MVC BigShelf](http://www.asp.net/single-page-applic
 
 * **User Friendly URLs** - The URLs are all determined server side so Routing can be used; the MVC version produces URLs client side so Routing can't be used.
 
-* **Faster Loading** - Because rendering is all server side, there's no delay when loading a bookmarked page; the MVC version's rendering is all client side so the initial load must wait for the JavaScript to download and execute. 
+* **Faster Loading** - The combination of server side rendering and HTML5 History means there's no delay when loading a bookmarked page; the MVC version's rendering is all client side so the initial load must wait for the JavaScript to download and execute. 
