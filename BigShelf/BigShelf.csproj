@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Navigation">
-      <HintPath>..\Navigation.dll</HintPath>
+      <HintPath>..\packages\Navigation.1.5\lib\4.5\Navigation.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
