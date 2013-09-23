@@ -4,9 +4,12 @@
 <%@ Register src="SortAndFilter.ascx" tagname="SortAndFilter" tagprefix="saf" %>
 <%@ Register Assembly="Navigation" Namespace="Navigation" TagPrefix="nav" %>
 <asp:Content ID="Content" runat="server" ContentPlaceHolderID="Content">
-    <asp:ScriptManager ID="ScriptManager" runat="server" EnableHistory="true" EnableSecureHistoryState="false">
+    <asp:ScriptManager ID="ScriptManager" runat="server" EnableHistory="true" EnableSecureHistoryState="false" LoadScriptsBeforeUI="false">
 		<Scripts>
 			<asp:ScriptReference Name="Navigation.HTML5History.js" Assembly="Navigation" />
+			<asp:ScriptReference Path="~/Scripts/jquery-1.7.2.min.js" />
+			<asp:ScriptReference Path="~/Scripts/jquery.rating.pack.js" />
+			<asp:ScriptReference Path="~/Scripts/Site.js" />
 		</Scripts>
     </asp:ScriptManager>
     <saf:SortAndFilter ID="SortAndFilter" runat="server" />
@@ -34,16 +37,4 @@
     </asp:UpdatePanel>
     <page:Paging ID="Paging" runat="server" />
     <nav:HistoryNavigator ID="Navigator" runat="server" HistoryKeys="filter,friends,sort,title,page" StateKeys="TotalItems" />
-    <script type="text/javascript">
-        $(function () {
-            $("html").addClass('js')
-            Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (sender, args) {
-                $(".ratings input[value!='0']").rating({ required: true });
-                $(".ratings input[value='0']").hide();
-            });
-            Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(function (sender, args) {
-                $(args.get_postBackElement()).parents('.coverCol, .details').siblings('.coverCol, .details').andSelf().addClass('updating');
-            });
-        });
-    </script>
 </asp:Content>
