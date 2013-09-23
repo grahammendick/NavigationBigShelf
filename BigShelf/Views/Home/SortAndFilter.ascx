@@ -52,6 +52,5 @@
         <nav:NavigationDataTrigger Key="filter" />
         <nav:NavigationDataTrigger Key="friends" />
         <nav:NavigationDataTrigger Key="sort" />
-        <nav:NavigationDataTrigger Key="title" />
     </Triggers>
 </asp:UpdatePanel>
